@@ -41,7 +41,7 @@ always
     reg signed [7:0] c,d;
     initial begin
         // Open a file to save results
-        file = $fopen("psmac_8bit_mode_new.csv", "w");
+        file = $fopen("psmac_8bit_mode.csv", "w");
         $fdisplay(file, "A,B,Result,Expected_Result,Status");  // CSV header
 
         // Iterate over all 8-bit input combinations
