@@ -48,7 +48,7 @@ module OAHFU(
     wire  [15:0] merge,mux1,mux2;
     wire  [15:0] shift;
     wire  [15:0]sea1;
-    wire  [15:0]sea2;
+    wire signed [15:0]sea2;
     
 
     
