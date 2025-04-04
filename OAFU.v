@@ -43,7 +43,7 @@ module OAFU(
     wire  [8:0] sea11,sea12,sea21,sea22,sea31,sea32,sea41,sea42;
 
     wire  [7:0]ps1,ps4;
-    wire signed [7:0] ps3,ps4;
+    wire signed [7:0] ps3,ps2;
     wire  [7:0]a1;
     wire  [15:0] merge,mux1,mux2;
     wire  [15:0] shift;
