@@ -42,11 +42,13 @@ module OAHFU(
     wire  [4:0] a11,a12,a21,a22,a31,a32,a41,a42;
     wire  [8:0] sea11,sea12,sea21,sea22,sea31,sea32,sea41,sea42;
 
-    wire  [7:0]ps1,ps2,ps3,ps4;
-    wire  [7:0]a1,a2;
+    wire  [7:0]ps1,ps4;
+    wire signed [7:0] ps1,ps2;
+    wire  [7:0] a1;
     wire  [15:0] merge,mux1,mux2;
     wire  [15:0] shift;
-    wire  [15:0]sea1,sea2;
+    wire  [15:0]sea1;
+    wire  [15:0]sea2;
     
 
     
@@ -146,9 +148,7 @@ module OAHFU(
     assign sea1=(ps4[7]||ps1[7])?({a1[7],a1[7],a1[7],a1[7],a1[7],a1[7],a1[7],a1[7],a1}):({8'b00000000,a1});
     assign mux1= (mode2)?(merge): (sea1);
 
-    assign a2=ps2+ps3;
-    assign sea2=(ps2[7]||ps3[7])?({a2[7],a2[7],a2[7],a2[7],a2[7],a2[7],a2[7],a2[7],a2}):({8'b00000000,a2});
-    assign shift=sea2<<4;
+    assign sea2=ps2+ps3;
     assign mux2= (mode2)?(shift): (sea2);
 
     always @(posedge clk)
